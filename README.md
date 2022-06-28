@@ -6,7 +6,7 @@ Fork me and play with your own repo.
 
 You need a PVE(Proxmox), accessabile from internet (by Github hosted runners), and an OCI bucket (S3 compatibile).
 
-Once you have following secrets defined in one of your repo's environment, you are good to go.
+Once you have following secrets defined in one of your repo's environments, you are good to go.
 - [x] AWS_ACCESS_KEY_ID
 - [x] AWS_S3_ENDPOINT
 - [x] AWS_SECRET_ACCESS_KEY
