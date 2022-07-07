@@ -25,6 +25,7 @@ resource "proxmox_vm_qemu" "pve-tf" {
     size    = "8G"
     type    = "scsi"
     storage = "local-lvm"
+    #storage_type = "lvmthin"
     iothread = 1
   }
   network {
