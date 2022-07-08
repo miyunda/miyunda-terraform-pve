@@ -7,30 +7,30 @@ terraform {
 }
 
 resource "proxmox_vm_qemu" "pve-tf" {
-  agent       = 1
   count       = 0
+  agent       = var.pm_agent_enabled
   vmid        = 201 + count.index
   name        = "k8s-prod-0${1 + count.index}"
-  target_node = "proxmox"
-  clone       = "bullseye-vm-tmpl"
-  full_clone  = "true"
-  os_type     = "cloud-init"
-  cores       = "2"
-  sockets     = "1"
-  cpu         = "host"
-  memory      = 4096
-  scsihw      = "virtio-scsi-pci"
-  bootdisk    = "scsi0"
+  target_node = var.pm_target_node
+  clone       = var.pm_vm_template
+  full_clone  = var.pm_vm_full_clone
+  os_type     = var.pm_vm_os_type
+  cores       = var.pm_vm_cores
+  sockets     = var.pm_vm_sockets
+  cpu         = var.pm_vm_cpu_type
+  memory      = var.pm_vm_memory
+  scsihw      = var.pm_vm_scsihw
+  bootdisk    = var.pm_vm_bootdisk
   disk {
-    size    = "8G"
-    type    = "scsi"
-    storage = "local-lvm"
+    size    = var.pm_vm_disk_size
+    type    = var.pm_vm_disk_type
+    storage = var.pm_vm_disk_storage
     #storage_type = "lvmthin"
-    iothread = 1
+    iothread = var.pm_vm_disk_iothread
   }
   network {
-    model  = "virtio"
-    bridge = "vmbr0"
+    model  = var.pm_vm_network_model
+    bridge = var.pm_vm_network_bridge
   }
   lifecycle {
     ignore_changes = [
@@ -38,8 +38,6 @@ resource "proxmox_vm_qemu" "pve-tf" {
     ]
   }
   # Create Ansible user, introduce its SSH key pub.
-  ciuser  = "ansibleops"
-  sshkeys = <<EOF
-  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL5z4HQz55B+OOhiWGmb82sLDBHeqJFUbesQ5n045O0J ansibleops@miyunda.com
-  EOF
+  ciuser  = var.pm_ciuser
+  sshkeys = var.pm_sshkeys
 }
