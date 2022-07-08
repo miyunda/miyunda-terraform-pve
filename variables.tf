@@ -73,7 +73,7 @@ variable "pm_vm_network_bridge" {
   description = "Proxmox guest network bridge"
   default     = "vmbr0"
 }
-variable "pm_vm_ciuer" {
+variable "pm_vm_ciuser" {
   description = "Proxmox guest CI user"
   default     = "ansibleops"
 }
