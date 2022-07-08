@@ -38,6 +38,6 @@ resource "proxmox_vm_qemu" "pve-tf" {
     ]
   }
   # Create Ansible user, introduce its SSH key pub.
-  ciuser  = var.pm_ciuser
-  sshkeys = var.pm_sshkeys
+  ciuser  = var.pm_vm_ciuser
+  sshkeys = var.pm_vm_sshkeys
 }
