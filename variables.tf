@@ -48,9 +48,9 @@ variable "pm_vm_bootdisk" {
   default     = "scsi0"
 }
 variable "pm_vm_disk_size" {
-  description = "Proxmox guest disk size in GB"
-  type        = number
-  default     = 8
+  description = "Proxmox guest disk size"
+  type        = string
+  default     = "8G"
 }
 variable "pm_vm_disk_type" {
   description = "Proxmox guest disk type"
@@ -82,6 +82,12 @@ variable "pm_vm_sshkeys" {
   default     = <<EOF
   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL5z4HQz55B+OOhiWGmb82sLDBHeqJFUbesQ5n045O0J
   EOF
+}
+variable "github_actor" {
+  description = "Proxmox guest description"
+}
+variable "github_updated_at" {
+  description = "Time of last update"
 }
 variable "pm_api_url" {
   description = "Proxmox API endpoint URL"
