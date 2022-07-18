@@ -17,4 +17,4 @@ Once you have following secrets defined in one of your repo's environments, you 
 
 >Note that `BACKEND_BUCKET` is not very sensitive, you may not want to keep it as a secret, hard code it in your .tf files if you like.
 
-For more info, this repo is a companion repo to the "fill URL of the blog".
+For more info, this repo is a companion repo to my blog [Terraform and Github Actions](https://miyunda.com/homelab-pve-githubactions/)(Chinese only).
