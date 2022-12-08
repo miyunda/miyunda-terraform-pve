@@ -1,11 +1,3 @@
-terraform {
-  required_providers {
-    proxmox = {
-      source = "telmate/proxmox"
-    }
-  }
-}
-
 resource "proxmox_vm_qemu" "pve-tf" {
   count       = 1
   agent       = var.pm_agent_enabled
