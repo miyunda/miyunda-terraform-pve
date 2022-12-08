@@ -1,4 +1,4 @@
-resource "proxmox_vm_qemu" "pve-tf" {
+resource "proxmox_vm_qemu" "consul-prod" {
   count       = 1
   agent       = var.pm_agent_enabled
   vmid        = 211 + count.index

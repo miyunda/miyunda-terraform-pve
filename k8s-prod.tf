@@ -6,7 +6,7 @@ terraform {
   }
 }
 
-resource "proxmox_vm_qemu" "pve-tf" {
+resource "proxmox_vm_qemu" "k8s-prod" {
   count       = 0
   agent       = var.pm_agent_enabled
   vmid        = 201 + count.index
