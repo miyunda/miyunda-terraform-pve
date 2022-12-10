@@ -1,8 +1,8 @@
-resource "proxmox_vm_qemu" "consul-prod" {
+resource "proxmox_vm_qemu" "etcd-prod" {
   count       = 1
   agent       = var.pm_agent_enabled
   vmid        = 211 + count.index
-  name        = "consul-prod-0${1 + count.index}"
+  name        = "etcd-prod-0${1 + count.index}"
   target_node = var.pm_target_node
   clone       = var.pm_vm_template
   full_clone  = var.pm_vm_full_clone
