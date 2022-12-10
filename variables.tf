@@ -71,7 +71,7 @@ variable "pm_vm_network_model" {
 }
 variable "pm_vm_network_bridge" {
   description = "Proxmox guest network bridge"
-  default     = "vmbr0"
+  default     = "vmbr1"
 }
 variable "pm_vm_ciuser" {
   description = "Proxmox guest CI user"
