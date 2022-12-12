@@ -1,5 +1,5 @@
 resource "proxmox_vm_qemu" "etcd-prod" {
-  count       = 2
+  count       = 3
   agent       = var.pm_agent_enabled
   vmid        = 211 + count.index
   name        = "etcd-prod-0${1 + count.index}"
