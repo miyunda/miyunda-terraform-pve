@@ -7,7 +7,7 @@ terraform {
 }
 
 resource "proxmox_vm_qemu" "k8s-prod" {
-  count       = 0
+  count       = 1
   agent       = var.pm_agent_enabled
   vmid        = 201 + count.index
   name        = "k8s-prod-0${1 + count.index}"
